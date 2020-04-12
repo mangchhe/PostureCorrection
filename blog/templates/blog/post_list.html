@@ -1,25 +1,13 @@
-<html>
-    <head>
-        <title>Haju's blog</title>
-    </head>
-    <body>
-        <div>
-            <h1><a href="https://www.naver.com">Haju Blog</a></h1>
+{% extends 'blog/base.html' %}
+
+{% block content %}
+    {% for post in posts %}
+        <div class="post">
+            <div class="date">
+                {{ post.published_date }}
+            </div>
+            <h1><a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a></h1>
+            <p>{{ post.text|linebreaksbr }}</p>
         </div>
-        <div>
-            <h2>Ha</h2>
-            <p>League of Legend</p>
-            <h4>League of legend</h4>
-        </div>
-        <div>
-            <h2>Joo</h2>
-            <p>League of Legend</p>
-            <h5>League of legend</h5>
-        </div>
-        <div>
-            <h2>Hyun</h2>
-            <p>League of Legend</p>
-            <h6>Leage of legend</h6>
-        </div>
-    </body>
-</html>
+    {% endfor %}
+{% endblock %}
