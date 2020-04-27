@@ -1,0 +1,20 @@
+<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+
+<h1>Hello World</h1>
+
+<a href="{% url 'about' %}">ABOUT</a>
+
+{% for home in homes.all %}
+    <h1>{{home.title}}</h1>
+    <p>{{home.pub_date}}</p>
+    <p>{{home.summary}}<a href="{% url 'detail' home.id %}">...more</a></p>
+    <br>
+{% endfor %}
+
+<form action="{% url 'result' %}">
+    <textarea name = 'fulltext' cols = '40' rows = '10'>
+    </textarea>
+    <br>
+    <input type="submit" value="제출하기">
+</form>
