@@ -15,7 +15,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-import home.views
+import home.views, home_view.views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -26,4 +26,5 @@ urlpatterns = [
     path('home/<int:home_id>', home.views.detail, name= 'detail'),
     path('home/new', home.views.new, name='new'),
     path('home/create', home.views.create, name='create'),
+    path('home_view/^$', home_view.views.index, name='aa'),
 ]
